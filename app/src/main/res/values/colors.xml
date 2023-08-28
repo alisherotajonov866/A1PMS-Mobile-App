@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Primary color -->
+    <color name="primaryColor">#496727</color>
+
+    <!-- Secondary color -->
+    <color name="secondaryColor">#C5EAE7</color>
+
+    <!-- Background color -->
+    <color name="backgroundColor">#FEFCF6</color>
+
+    <!-- Text color -->
+    <color name="textColor">#1B1C18</color>
+
+    <!-- Button color -->
+    <color name="buttonColor">#496727</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary color -->
+    <color name="primaryColor">#AED285</color>
+
+    <!-- Secondary color -->
+    <color name="secondaryColor">#2B4C4A</color>
+
+    <!-- Background color -->
+    <color name="backgroundColor">#1B1C18</color>
+
+    <!-- Text color -->
+    <color name="textColor">#E4E3DD</color>
+
+    <!-- Button color -->
+    <color name="buttonColor">#AED285</color>
+</resources>
