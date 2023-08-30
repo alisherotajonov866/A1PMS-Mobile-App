@@ -3,20 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginIn">
+    app:startDestination="@id/dashboard">
 
     <fragment
-        android:id="@+id/loginIn"
+        android:id="@+id/logIn"
         android:name="com.example.a1pms_mobile_app.login.LogIn"
         android:label="fragment_login_in"
         tools:layout="@layout/fragment_log_in" >
         <action
-            android:id="@+id/action_loginIn_to_dashboard"
+            android:id="@+id/action_logIn_to_dashboard"
             app:destination="@id/dashboard" />
     </fragment>
     <fragment
         android:id="@+id/dashboard"
-        android:name="com.example.a1pms_mobile_app.ui.Dashboard"
+        android:name="com.example.a1pms_mobile_app.dashboard.Dashboard"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard" />
+    <fragment
+        android:id="@+id/projects"
+        android:name="com.example.a1pms_mobile_app.projects.Projects"
+        android:label="fragment_projects"
+        tools:layout="@layout/fragment_projects" />
+    <fragment
+        android:id="@+id/problemProjects"
+        android:name="com.example.a1pms_mobile_app.problem_projects.ProblemProjects"
+        android:label="fragment_problem_projects"
+        tools:layout="@layout/fragment_problem_projects" />
+    <fragment
+        android:id="@+id/settings"
+        android:name="com.example.a1pms_mobile_app.settings.Settings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>

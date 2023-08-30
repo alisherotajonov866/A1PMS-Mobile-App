@@ -14,10 +14,6 @@ class LogIn : Fragment() {
 
     private var _binding: FragmentLogInBinding? = null
     private val binding get() = _binding!!
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,7 +21,7 @@ class LogIn : Fragment() {
         _binding = FragmentLogInBinding.inflate(inflater, container, false)
 
         binding.btnLogIn.setOnClickListener {
-            findNavController().navigate(R.id.action_loginIn_to_dashboard)
+            findNavController().navigate(R.id.action_logIn_to_dashboard)
         }
         binding.btnForgotPassword.setOnClickListener {
             makeText(requireContext(), "Clickable", Toast.LENGTH_LONG).show()

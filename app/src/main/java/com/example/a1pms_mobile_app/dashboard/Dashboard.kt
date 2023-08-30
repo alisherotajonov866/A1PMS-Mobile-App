@@ -1,4 +1,4 @@
-package com.example.a1pms_mobile_app.ui
+package com.example.a1pms_mobile_app.dashboard
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,10 +8,8 @@ import android.view.ViewGroup
 import com.example.a1pms_mobile_app.R
 
 class Dashboard : Fragment() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(
