@@ -16,7 +16,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.myToolbar)
+        setUpBottomNavigation()
 
+
+    }
+
+    private fun setUpBottomNavigation() {
         val navController = findNavController(R.id.fragmentContainerView)
         binding.bottomNavigationView.setupWithNavController(navController)
     }

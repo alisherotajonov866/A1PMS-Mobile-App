@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboard">
+    app:startDestination="@id/logIn">
 
     <fragment
         android:id="@+id/logIn"
@@ -18,7 +18,8 @@
         android:id="@+id/dashboard"
         android:name="com.example.a1pms_mobile_app.dashboard.Dashboard"
         android:label="fragment_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_dashboard" >
+    </fragment>
     <fragment
         android:id="@+id/projects"
         android:name="com.example.a1pms_mobile_app.projects.Projects"
