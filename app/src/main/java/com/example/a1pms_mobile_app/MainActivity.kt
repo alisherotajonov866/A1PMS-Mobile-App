@@ -1,5 +1,6 @@
 package com.example.a1pms_mobile_app
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.NavController
@@ -10,12 +11,15 @@ import com.example.a1pms_mobile_app.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    @SuppressLint("ResourceAsColor")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.myToolbar)
+        binding.myToolbar.setTitleTextColor(R.color.md_theme_light_onPrimaryContainer)
         setUpBottomNavigation()
 
 
