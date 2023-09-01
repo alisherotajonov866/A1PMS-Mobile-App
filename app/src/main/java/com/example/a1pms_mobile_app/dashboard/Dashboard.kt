@@ -31,7 +31,7 @@ class Dashboard : Fragment() {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         userDataViewModel.userData.observe(viewLifecycleOwner) { user ->
-            binding.tvDashboard.text = user.name
+            binding.tvDashboard.text = user?.name
         }
 
         return binding.root

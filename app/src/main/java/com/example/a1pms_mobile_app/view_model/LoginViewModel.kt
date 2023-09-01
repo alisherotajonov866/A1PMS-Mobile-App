@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 
 class LoginViewModel(private val apiService: ApiService) : ViewModel() {
 
-    private val _loginState = MutableLiveData<LoginState>()
-    val loginState: LiveData<LoginState> get() = _loginState
+    private val _loginState = MutableLiveData<LoginState?>()
+    val loginState: MutableLiveData<LoginState?> get() = _loginState
 
     fun loginUser(email: String, password: String) {
         viewModelScope.launch {
@@ -23,6 +23,9 @@ class LoginViewModel(private val apiService: ApiService) : ViewModel() {
                 _loginState.value = LoginState.Error(e.message)
             }
         }
+    }
+    fun logout() {
+        _loginState.value = null
     }
 }
 

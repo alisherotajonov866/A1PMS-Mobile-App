@@ -43,8 +43,8 @@ class LogIn : Fragment() {
         _binding = FragmentLogInBinding.inflate(inflater, container, false)
 
         val token = SharedPrefsUtils.getToken(requireContext())
-        if (token.isNullOrEmpty()) {
-            findNavController().navigate(R.id.logIn)
+        if (!token.isNullOrEmpty()) {
+            findNavController().navigate(R.id.dashboard)
         }
 
         viewModel.loginState.observe(viewLifecycleOwner) { state ->

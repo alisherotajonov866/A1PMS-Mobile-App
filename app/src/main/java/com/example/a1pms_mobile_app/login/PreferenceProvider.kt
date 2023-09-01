@@ -22,6 +22,11 @@ object SharedPrefsUtils {
         return getSharedPreferences(context).getString(KEY_TOKEN, null)
     }
 
+    fun clearToken(context: Context) {
+        getSharedPreferences(context).edit().remove(KEY_TOKEN).apply()
+    }
+
+
     // Add methods to save and retrieve user details
 }
 
