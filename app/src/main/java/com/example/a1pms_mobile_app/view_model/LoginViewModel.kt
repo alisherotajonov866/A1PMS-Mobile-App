@@ -9,7 +9,7 @@ import com.example.a1pms_mobile_app.network.LoginRequest
 import com.example.a1pms_mobile_app.network.User
 import kotlinx.coroutines.launch
 
-class LoginViewModel (private val apiService: ApiService) : ViewModel() {
+class LoginViewModel(private val apiService: ApiService) : ViewModel() {
 
     private val _loginState = MutableLiveData<LoginState>()
     val loginState: LiveData<LoginState> get() = _loginState
