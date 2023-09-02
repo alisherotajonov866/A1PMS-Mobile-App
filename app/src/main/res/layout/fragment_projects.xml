@@ -38,6 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/projects"
+            android:textColor="?attr/colorOnPrimary"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarDashboard"
             app:layout_constraintStart_toStartOf="parent"

@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".dashboard.Dashboard">
 
-    <TextView
-        android:id="@+id/tvDashboard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="172dp"
-        android:text="@string/dashboard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,6 +26,7 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:textColor="?attr/colorOnPrimary"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="@string/app_name"

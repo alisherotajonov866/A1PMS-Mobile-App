@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.a1pms_mobile_app.databinding.ActivityMainBinding
+import com.example.a1pms_mobile_app.preference.SharedPrefsUtils
 import com.example.a1pms_mobile_app.view_model.UserDataViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
         userDataViewModel = ViewModelProvider(this)[UserDataViewModel::class.java]
 
+        val savedUser = SharedPrefsUtils.getUserData(this)
+        if (savedUser != null) {
+            userDataViewModel.setUserData(savedUser)
+        }
+
     }
 
     private fun setUpBottomNavigation() {
@@ -33,6 +39,10 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
                 R.id.logIn -> {
+                    binding.bottomNavigationView.visibility = View.GONE
+                }
+
+                R.id.profile -> {
                     binding.bottomNavigationView.visibility = View.GONE
                 }
 

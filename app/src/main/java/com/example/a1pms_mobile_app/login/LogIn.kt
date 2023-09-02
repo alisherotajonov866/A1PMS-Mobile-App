@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.a1pms_mobile_app.R
 import com.example.a1pms_mobile_app.databinding.FragmentLogInBinding
 import com.example.a1pms_mobile_app.network.RetrofitProvider
+import com.example.a1pms_mobile_app.preference.SharedPrefsUtils
 import com.example.a1pms_mobile_app.view_model.LoginState
 import com.example.a1pms_mobile_app.view_model.LoginViewModel
 import com.example.a1pms_mobile_app.view_model.LoginViewModelFactory
@@ -48,6 +49,7 @@ class LogIn : Fragment() {
             when (state) {
                 is LoginState.Success -> {
                     SharedPrefsUtils.saveToken(requireContext(), state.token)
+                    SharedPrefsUtils.saveUserData(requireContext(), state.user)
                     userDataViewModel.setUserData(state.user)
                     onLoginSuccessGoDashboard()
                 }

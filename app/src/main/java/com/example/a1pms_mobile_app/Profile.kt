@@ -9,8 +9,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.a1pms_mobile_app.databinding.FragmentProfileBinding
-import com.example.a1pms_mobile_app.login.SharedPrefsUtils
 import com.example.a1pms_mobile_app.network.RetrofitProvider
+import com.example.a1pms_mobile_app.network.User
+import com.example.a1pms_mobile_app.preference.SharedPrefsUtils
 import com.example.a1pms_mobile_app.view_model.LoginViewModel
 import com.example.a1pms_mobile_app.view_model.LoginViewModelFactory
 import com.example.a1pms_mobile_app.view_model.UserDataViewModel
@@ -32,8 +33,13 @@ class Profile : Fragment() {
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
+        userDataViewModel.userData.observe(viewLifecycleOwner) { user ->
+            user?.let { setData(it) }
+        }
+
         binding.btnLogOut.setOnClickListener {
             SharedPrefsUtils.clearToken(requireContext())
+            SharedPrefsUtils.clearUserDataFromPrefs(requireContext())
             userDataViewModel.clearUserData()
             viewModel.logout()
             findNavController().navigate(R.id.action_logout)
@@ -44,6 +50,16 @@ class Profile : Fragment() {
         }
 
         return binding.root
+    }
+
+    private fun setData(user: User) {
+        binding.apply {
+            tvFirstLastName.text = user.name
+            tvEmail.text = user.email
+            tvPhoneNumber.text = user.phoneNumber
+            tvJobType.text = user.organization.name
+            tvStir.text = user.organization.stir
+        }
     }
 
     override fun onDestroyView() {
