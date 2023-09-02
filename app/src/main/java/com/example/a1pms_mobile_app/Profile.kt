@@ -39,6 +39,10 @@ class Profile : Fragment() {
             findNavController().navigate(R.id.action_logout)
         }
 
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
+
         return binding.root
     }
 

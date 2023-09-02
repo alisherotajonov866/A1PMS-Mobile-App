@@ -1,7 +1,6 @@
 package com.example.a1pms_mobile_app.login
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,12 +13,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.a1pms_mobile_app.R
 import com.example.a1pms_mobile_app.databinding.FragmentLogInBinding
 import com.example.a1pms_mobile_app.network.RetrofitProvider
-import com.example.a1pms_mobile_app.network.User
 import com.example.a1pms_mobile_app.view_model.LoginState
 import com.example.a1pms_mobile_app.view_model.LoginViewModel
 import com.example.a1pms_mobile_app.view_model.LoginViewModelFactory
 import com.example.a1pms_mobile_app.view_model.UserDataViewModel
-import com.google.gson.Gson
 
 
 class LogIn : Fragment() {
@@ -44,7 +41,7 @@ class LogIn : Fragment() {
 
         val token = SharedPrefsUtils.getToken(requireContext())
         if (!token.isNullOrEmpty()) {
-            findNavController().navigate(R.id.dashboard)
+            onLoginSuccessGoDashboard()
         }
 
         viewModel.loginState.observe(viewLifecycleOwner) { state ->
@@ -52,7 +49,7 @@ class LogIn : Fragment() {
                 is LoginState.Success -> {
                     SharedPrefsUtils.saveToken(requireContext(), state.token)
                     userDataViewModel.setUserData(state.user)
-                    navigateToHome()
+                    onLoginSuccessGoDashboard()
                 }
 
                 is LoginState.Error -> {
@@ -78,8 +75,11 @@ class LogIn : Fragment() {
         return binding.root
     }
 
-    private fun navigateToHome() {
-        findNavController().navigate(R.id.action_logIn_to_dashboard)
+    private fun onLoginSuccessGoDashboard() {
+        findNavController().apply {
+            popBackStack(R.id.logIn, true)
+            navigate(R.id.dashboard)
+        }
     }
 
     private fun toastMethod(message: String) {

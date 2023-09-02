@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.a1pms_mobile_app.MainActivity
+import com.example.a1pms_mobile_app.R
 import com.example.a1pms_mobile_app.databinding.FragmentDashboardBinding
 import com.example.a1pms_mobile_app.network.User
 import com.example.a1pms_mobile_app.view_model.UserDataViewModel
@@ -32,6 +34,10 @@ class Dashboard : Fragment() {
 
         userDataViewModel.userData.observe(viewLifecycleOwner) { user ->
             binding.tvDashboard.text = user?.name
+        }
+
+        binding.ivProfile.setOnClickListener {
+            findNavController().navigate(R.id.action_dashboard_to_profile)
         }
 
         return binding.root

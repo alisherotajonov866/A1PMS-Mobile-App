@@ -9,17 +9,16 @@
         android:id="@+id/logIn"
         android:name="com.example.a1pms_mobile_app.login.LogIn"
         android:label="fragment_login_in"
-        tools:layout="@layout/fragment_log_in">
-        <action
-            android:id="@+id/action_logIn_to_dashboard"
-            app:destination="@id/dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_log_in"/>
     <fragment
         android:id="@+id/dashboard"
         android:name="com.example.a1pms_mobile_app.dashboard.Dashboard"
         android:label="fragment_dashboard"
         tools:layout="@layout/fragment_dashboard">
 
+        <action
+            android:id="@+id/action_dashboard_to_profile"
+            app:destination="@id/profile" />
     </fragment>
     <fragment
         android:id="@+id/projects"

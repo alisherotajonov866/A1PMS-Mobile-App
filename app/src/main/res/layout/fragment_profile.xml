@@ -6,6 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".Profile">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarDashboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnBack"
+            style="@style/Widget.Material3.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/back"
+            android:textColor="?attr/colorOnPrimary"
+            app:icon="@drawable/ic_back"
+            app:iconTint="?attr/colorOnPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/toolbarDashboard"
+            app:layout_constraintTop_toTopOf="@+id/toolbarDashboard" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/textView"
@@ -62,10 +96,9 @@
         android:id="@+id/tvFirstLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
         android:text="Your First and Last Name"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <TextView
@@ -74,7 +107,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Your Phone Number"
-        app:layout_constraintEnd_toEndOf="@+id/tvFirstLastName"
+        app:layout_constraintStart_toStartOf="@+id/tvFirstLastName"
         app:layout_constraintTop_toBottomOf="@+id/tvFirstLastName" />
 
     <TextView
@@ -83,7 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Your Email"
-        app:layout_constraintEnd_toEndOf="@+id/tvPhoneNumber"
+        app:layout_constraintStart_toStartOf="@+id/tvPhoneNumber"
         app:layout_constraintTop_toBottomOf="@+id/tvPhoneNumber" />
 
     <TextView
@@ -92,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Your job"
-        app:layout_constraintEnd_toEndOf="@+id/tvEmail"
+        app:layout_constraintStart_toStartOf="@+id/tvEmail"
         app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
 
     <TextView
@@ -101,7 +134,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Your personal Stir"
-        app:layout_constraintEnd_toEndOf="@+id/tvJobType"
+        app:layout_constraintStart_toStartOf="@+id/tvJobType"
         app:layout_constraintTop_toBottomOf="@+id/tvJobType" />
 
     <Button
@@ -111,9 +144,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="@string/log_out"
-        app:layout_constraintEnd_toEndOf="@+id/tvStir"
-        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="151dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.a1pms_mobile_app
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -20,32 +21,28 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        binding.apply {
-            setSupportActionBar(myToolbar)
-            myToolbar.setTitleTextColor(R.color.md_theme_light_onPrimaryContainer)
-            setUpBottomNavigation()
-
-            tvProfile.setOnClickListener{
-                goToProfile()
-            }
-
-            ivProfile.setOnClickListener{
-                goToProfile()
-            }
-        }
+        setUpBottomNavigation()
 
         userDataViewModel = ViewModelProvider(this)[UserDataViewModel::class.java]
 
     }
 
-    private fun goToProfile() {
-        findNavController(R.id.fragmentContainerView).navigate(R.id.profile)
-    }
-
     private fun setUpBottomNavigation() {
         val navController = findNavController(R.id.fragmentContainerView)
-        binding.bottomNavigationView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            when (destination.id) {
+                R.id.logIn -> {
+                    binding.bottomNavigationView.visibility = View.GONE
+                }
+
+                else -> {
+                    binding.bottomNavigationView.visibility = View.VISIBLE
+                    navController.graph.setStartDestination(R.id.dashboard)
+                    binding.bottomNavigationView.setupWithNavController(navController)
+                }
+            }
+        }
 
     }
 }
